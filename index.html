@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Reserva</title>
+    <style>
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Preencha os Campos da Reserva</h2>
+    <form id="formReserva">
+        <label for="codigo_reserva">Código da Reserva:</label>
+        <input type="text" id="codigo_reserva" name="codigo_reserva" required><br><br>
+        
+        <label for="origem">De onde você deseja partir:</label>
+        <input type="text" id="origem" name="origem" required><br><br>
+        
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" id="sobrenome" name="sobrenome" required><br><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("formReserva").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que o formulário seja enviado
+
+            // Obtém os valores dos campos
+            var codigoReserva = document.getElementById("codigo_reserva").value;
+            var origem = document.getElementById("origem").value;
+            var sobrenome = document.getElementById("sobrenome").value;
+
+            // Exibe o resultado
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = "<h3>Resultado:</h3>";
+            resultadoDiv.innerHTML += "<p><strong>Código da Reserva:</strong> " + codigoReserva + "</p>";
+            resultadoDiv.innerHTML += "<p><strong>De onde:</strong> " + origem + "</p>";
+            resultadoDiv.innerHTML += "<p><strong>Sobrenome:</strong> " + sobrenome + "</p>";
+
+            // Limpa os campos do formulário
+            document.getElementById("formReserva").reset();
+        });
+    </script>
+</body>
+</html>
